@@ -29,7 +29,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end mr-32">
-                    <a className="btn">Button</a>
+                   <Link to="/register" className="btn btn-secondary">Register</Link>
                 </div>
             </div>
         </div>

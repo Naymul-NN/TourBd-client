@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiospublic from "../hooks/useAxiospublic";
+import { Link } from "react-router-dom";
 
 
 const Guides = () => {
@@ -54,7 +55,7 @@ const Guides = () => {
                          </td>
                          <td>{item.language}</td>
                          <th>
-                             <button className="btn btn-ghost btn-xs">details</button>
+                            <Link to={`/guideDetails/${item._id}`}> <button className="btn btn-secondary btn-xs">details</button></Link>
                          </th>
                      </tr> 
                         )}
