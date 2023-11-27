@@ -11,6 +11,13 @@ import Stotydetails from "../home/Stotydetails";
 import Allstory from "../home/Allstory";
 import PrivetRout from "../privet/PrivetRout";
 import Dashbord from "../layout/Dashbord";
+import UserHome from "../dashbord/UserHome";
+import Wellcome from "../dashbord/Wellcome";
+import UserBookings from "../dashbord/UserBookings";
+import Wishlist from "../dashbord/Wishlist";
+import AdminHome from "../dashbord/AdminHome";
+import Addpackage from "../dashbord/Addpackage";
+import ManageUsers from "../dashbord/ManageUsers";
 
 
     const router = createBrowserRouter([
@@ -62,7 +69,39 @@ import Dashbord from "../layout/Dashbord";
         },
         {
           path:"dashbord",
-          element:<Dashbord></Dashbord>
+          element:<Dashbord></Dashbord>,
+          children:[
+            {
+             path:'wellcome',
+             element:<Wellcome></Wellcome>
+            },
+            // user role
+            {
+              path:'userHome',
+              element:<UserHome></UserHome>
+            },
+            {
+              path:'userbookings',
+              element:<UserBookings></UserBookings>
+            },
+            {
+              path:'userwishlist',
+              element:<Wishlist></Wishlist>
+            },
+            // admin role
+            {
+              path:'adminHome',
+              element:<AdminHome></AdminHome>
+            },
+            {
+              path:'addpackage',
+              element:<Addpackage></Addpackage>
+            },
+            {
+              path:'manageusers',
+              element:<ManageUsers></ManageUsers>
+            }
+          ]
         }
       ]);
 
