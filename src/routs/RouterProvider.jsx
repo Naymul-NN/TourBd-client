@@ -9,6 +9,7 @@ import Allpackage from "../home/Allpackage";
 import Alldetails from "../home/Alldetails";
 import Stotydetails from "../home/Stotydetails";
 import Allstory from "../home/Allstory";
+import PrivetRout from "../privet/PrivetRout";
 
 
     const router = createBrowserRouter([
@@ -22,17 +23,17 @@ import Allstory from "../home/Allstory";
             },
             {
             path:"/viewpackage/:id",
-            element:<ViewPackage></ViewPackage>,
+            element:<PrivetRout><ViewPackage></ViewPackage></PrivetRout>,
             loader:({params})=> fetch(`http://localhost:5000/tabTour/${params.id}`)
             },
             {
               path:"/allDetails/:id",
-              element:<Alldetails></Alldetails>,
+              element:<PrivetRout><Alldetails></Alldetails></PrivetRout>,
               loader:({params})=> fetch(`http://localhost:5000/allpackage/${params.id}`)
             },
             {
              path:"/guideDetails/:id",
-             element:<GuideDetails></GuideDetails>,
+             element:<PrivetRout><GuideDetails></GuideDetails></PrivetRout>,
             loader:({params})=>fetch(`http://localhost:5000/tourGuide/${params.id}`)
             },
             {

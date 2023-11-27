@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { useContext, useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
+import Swal from "sweetalert2";
 
 
 const Signin = () => {
@@ -20,10 +21,16 @@ const Signin = () => {
         const password = e.target.password.value ;
     
         setLoginError("");
+
          userLogin(email,password)
          .then(result =>{
           console.log(result.user)
         //   toast.success('log in successfull')
+        Swal.fire({
+          title: "welcome back ",
+          text: "you are login successfull",
+          icon: "success"
+        });
           navigate(location?.state ? location.state: "/")
          })
          .catch(error=>{
@@ -38,6 +45,11 @@ const Signin = () => {
           .then(result => {
             console.log(result.user)
             // toast.success("good job ! log in successfull ")
+            Swal.fire({
+              title: "welcome back sir",
+              text: "you are successfully sign in ",
+              icon: "success"
+            });
             navigate(location?.state ? location.state: "/")
           })
           .catch(error =>{
