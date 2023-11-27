@@ -10,6 +10,7 @@ import Alldetails from "../home/Alldetails";
 import Stotydetails from "../home/Stotydetails";
 import Allstory from "../home/Allstory";
 import PrivetRout from "../privet/PrivetRout";
+import Dashbord from "../layout/Dashbord";
 
 
     const router = createBrowserRouter([
@@ -59,6 +60,10 @@ import PrivetRout from "../privet/PrivetRout";
             }
           ]
         },
+        {
+          path:"dashbord",
+          element:<Dashbord></Dashbord>
+        }
       ]);
 
 export default router;

@@ -60,7 +60,7 @@ const NavBar = () => {
                             {showProfileDropdown && (
                                 <ul className="menu dropdown-content bg-base-100 rounded-box mt-2 absolute">
                                     <li className="menu-title">
-                                        <span className="text-primary">Dashboard</span>
+                                      <Link to="/dashbord" ><span className="text-primary btn">Dashboard</span></Link>  
                                     </li>
                                     <div>
                                     <div>
