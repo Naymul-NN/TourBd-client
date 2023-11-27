@@ -70,7 +70,7 @@ const TabTour = () => {
                 }
 
             </div>
-            <button className="btn btn-secondary my-4">ALL PACKGES</button>
+           <Link to="/allpackage"> <button className="btn btn-secondary my-4">ALL PACKGES</button></Link>
         </div>
     );
 };
