@@ -24,7 +24,7 @@ const Allpackage = () => {
     const flying = data.filter(item => item.tourType === 'flying')
 
 
-    console.log(Adventure, hiking, walking, boating, flying)
+    // console.log(Adventure, hiking, walking, boating, flying)
     return (
         <div className="pt-20">
             <h1 className="text-center py-7">Here you see all of our package</h1>

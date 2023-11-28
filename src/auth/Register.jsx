@@ -3,9 +3,13 @@ import { AuthContext } from "./AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
+import useAxiospublic from "../hooks/useAxiospublic";
+import Swal from "sweetalert2";
+import SocialLogin from "../sociallogin/SocialLogin";
 
 
 const Register = () => {
+  const axiosPublic = useAxiospublic();
     const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [show, setshow] = useState(false);
@@ -45,6 +49,25 @@ const Register = () => {
             console.log('User profile updated successfully.');
             console.log(user);
             // toast.success('Congratulations! Registration successful');
+            const userinfo= {
+              name: user.displayName,
+              email:user.email
+            }
+            console.log(userinfo)
+            axiosPublic.post('/users', userinfo)
+            .then(res => {
+              if (res.data.insertedId) {
+                console.log('user profile info updated')
+                // reset;
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'you are successfully sign up',
+                  timer: 1500
+                })
+                // navigate('/')
+              }
+            })
             navigate('/');
           })
           .catch((error) => {
@@ -99,6 +122,7 @@ const Register = () => {
               </div>
               <p className="text-red-500 font-bold">{error}</p>
             </form>
+            <SocialLogin></SocialLogin>
             <p>if you have alrady an account !<Link to='/signin' className="text-green-500 font-bold"> login</Link></p>
           </div>
         </div>

@@ -4,9 +4,12 @@ import { FaHeart } from "react-icons/fa";
 import useAxiospublic from "../hooks/useAxiospublic";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../auth/AuthProvider";
 
 
 const TabTour = () => {
+    const {user} = useContext(AuthContext);
     const axiosPublic = useAxiospublic();
     const { isFetching, data, } = useQuery({
         queryKey: ['tabTour'],
@@ -24,6 +27,8 @@ const TabTour = () => {
             tourType: item.tourType,
             tripTitle: item.tripTitle,
             price: item.price,
+            id: item._id,
+            userEmil:user.email
         }
         console.log(wishItem)
         axiosPublic.post('/wishlist', wishItem)

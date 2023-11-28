@@ -16,7 +16,7 @@ const ViewPackage = () => {
 
     const { user } = useContext(AuthContext);
     const viwepackage = useLoaderData();
-
+     const tourType = viwepackage.tourType
     const handleBook = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -27,7 +27,7 @@ const ViewPackage = () => {
         const date = form.date.value;
         const info = form.info.value;
         const touristPhoto = form.photo.value;
-        const bookInfo = { touristName, touristEmail, guideName, price, date, touristPhoto, info }
+        const bookInfo = {tourType, touristName, touristEmail, guideName, price, date, touristPhoto, info }
         console.log(bookInfo)
 
         if (bookedServices.some((booking) => booking.date === date && booking.touristEmail === touristEmail)) {
@@ -146,13 +146,13 @@ const ViewPackage = () => {
                             <label className="input-group">
                                 <span>guide</span>
                                 <select name="guide" className="select select-bordered w-full">
-                                    <option value="guide1">John Doe</option>
-                                    <option value="guide2">Jane Smith</option>
-                                    <option value="guide3">Bob Johnson</option>
-                                    <option value="guide3">Emily Davis</option>
-                                    <option value="guide3">Michael Wilson</option>
-                                    <option value="guide3">Sophia Lee</option>
-                                    <option value="guide3">David Martinez</option>
+                                    <option value="John Doe">John Doe</option>
+                                    <option value="Jane Smit">Jane Smith</option>
+                                    <option value="Bob Johnson">Bob Johnson</option>
+                                    <option value="Emily Davis">Emily Davis</option>
+                                    <option value="Michael Wilson">Michael Wilson</option>
+                                    <option value="Sophia lee">Sophia Lee</option>
+                                    <option value="David Martinez">David Martinez</option>
                                     {/* Add more options as needed */}
                                 </select>
                             </label>

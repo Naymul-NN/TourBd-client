@@ -1,8 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { useContext, useState } from "react";
-import { GoogleAuthProvider } from "firebase/auth";
+// import { GoogleAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
+import SocialLogin from "../sociallogin/SocialLogin";
 
 
 const Signin = () => {
@@ -10,9 +11,9 @@ const Signin = () => {
     const location = useLocation();
     console.log(location);
     const navigate = useNavigate();
-    const {googleLogin, userLogin} = useContext(AuthContext);
+    const { userLogin} = useContext(AuthContext);
     const [loginError,setLoginError]= useState("");
-    const provider = new GoogleAuthProvider();
+    // const provider = new GoogleAuthProvider();
 
 
     const handleLogin = (e) =>{
@@ -40,23 +41,23 @@ const Signin = () => {
     
     }
     
-       const handlegooleLogIn=()=>{
-          googleLogin(provider)
-          .then(result => {
-            console.log(result.user)
-            // toast.success("good job ! log in successfull ")
-            Swal.fire({
-              title: "welcome back sir",
-              text: "you are successfully sign in ",
-              icon: "success"
-            });
-            navigate(location?.state ? location.state: "/")
-          })
-          .catch(error =>{
-            console.error(error)
-          })
+      //  const handlegooleLogIn=()=>{
+      //     googleLogin(provider)
+      //     .then(result => {
+      //       console.log(result.user)
+      //       // toast.success("good job ! log in successfull ")
+      //       Swal.fire({
+      //         title: "welcome back sir",
+      //         text: "you are successfully sign in ",
+      //         icon: "success"
+      //       });
+      //       navigate(location?.state ? location.state: "/")
+      //     })
+      //     .catch(error =>{
+      //       console.error(error)
+      //     })
     
-       }
+      //  }
 
     return (
         <div>
@@ -84,7 +85,7 @@ const Signin = () => {
           <button className="btn btn-primary">Login</button>
         </div>
         <p className="text-red-500 font-bold">{loginError}</p>
-        <button onClick={handlegooleLogIn} className="btn">Go with google</button>
+        <SocialLogin></SocialLogin>
       </form>
       <p>If you are new here! <Link to='/register' className="text-green-400 font-bold" >Register</Link></p>
     </div>

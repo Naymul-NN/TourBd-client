@@ -1,9 +1,14 @@
 import { FaBook, FaCartPlus, FaHome, FaList, FaUtensils } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
+import useAmin from "../hooks/useAmin";
+import useGuide from "../hooks/useGuide";
 
 const Dashbord = () => {
-    const role= "user"
+    const [isAdmin] = useAmin();
+    const [isguide] = useGuide();
+   console.log(isguide,isAdmin);
+    // const role = "user"
     return (
         <div className="w-[90%] mx-auto" >
             <h1 className="text-3xl text-center py-6">See your activity</h1>
@@ -11,7 +16,7 @@ const Dashbord = () => {
                 <div className="w-64 min-h-screen bg-pink-300">
                     <ul className="menu">
 
-                      { role==="admin"? ( <>
+                      { isAdmin? ( <>
                         <li> <NavLink to="/dashbord/adminHome">
                             <FaHome></FaHome>
                             My profile</NavLink>
@@ -24,7 +29,7 @@ const Dashbord = () => {
                             <FaList></FaList>
                              Manage users</NavLink>
                        </li>
-                       </>) : role === 'guide' ? (
+                       </>) : isguide? (
                             <>
                                 {/* Guide links */}
                                 <li>
