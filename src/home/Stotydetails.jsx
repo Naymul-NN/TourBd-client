@@ -6,7 +6,7 @@ const Stotydetails = () => {
     return (
         <div className="pt-32">
             <h1 className="text-2xl">My name is {story.touristName} and i want to share my tour exprience in bangladesh</h1>
-            <div className=" grid grid-cols-3 gap-9">
+            <div className=" grid lg:grid-cols-3 gap-9">
                <div >
                <h1 className="font-bold py-6">Day 1</h1>
                 <p className="text-justify">{story.day1}</p>

@@ -36,7 +36,7 @@ const Story = () => {
                                     clickable: true,
                                 }}
                                 modules={[Pagination]}
-                                className="mySwiper mb-10 mt-4"
+                                className="mySwiper flex flex-col lg:grid mb-10 mt-4  md:grid-cols-3 lg:grid-cols-3 "
                             >
                                 <SwiperSlide><img src={item?.photo} alt="" style={{ width: '100%', height: '300px' }} /></SwiperSlide>
                                 <SwiperSlide><img src={item?.photo1} alt="" style={{ width: '100%', height: '300px' }} /></SwiperSlide>

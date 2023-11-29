@@ -26,7 +26,7 @@ const AssignTour = () => {
             <div>
             <h1 className="text-center font-semibold text-2xl py-5">Assign Tour list</h1>
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="table ">
                     {/* head */}
                     <thead>
                         <tr>

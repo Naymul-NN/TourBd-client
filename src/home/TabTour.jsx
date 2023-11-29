@@ -54,7 +54,7 @@ const TabTour = () => {
             <div className=" flex flex-col items-center gap-6">
                 {
                     data.map(item => (
-                        <div key={item._id} className="card w-[700px] bg-base-100 shadow-xl ">
+                        <div key={item._id} className="card lg:w-[700px] bg-base-100 shadow-xl ">
                             <figure ><img src={item.photo} alt="Shoes" />
                                 <button onClick={() => handleWishList(item)} className="absolute top-0 right-0 m-4">
                                     <FaHeart className="text-red-600 text-4xl" />

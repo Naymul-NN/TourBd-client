@@ -8,7 +8,7 @@ const ToutType = () => {
     return (
         <div className="pb-10">
             <h1 className="text-center text-3xl py-7">What do you like most</h1>
-            <div className="flex justify-evenly">
+            <div className="lg:flex lg:justify-evenly grid grid-cols-2 gap-5">
               <Link to = "/allpackage">
               <div className="w-40 h-40 flex flex-col rounded-xl justify-center items-center bg-gradient-to-r from-green-100 to-red-100"><GiJungle className="text-2xl"/> Adventure</div>
               </Link>   
