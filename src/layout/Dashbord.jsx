@@ -33,15 +33,15 @@ const Dashbord = () => {
                             <>
                                 {/* Guide links */}
                                 <li>
-                                    <NavLink to="/dashboard/guideHome">
+                                    <NavLink to="/dashbord/guideHome">
                                         <FaHome></FaHome>
                                         Guide Home
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/guideBookings">
+                                    <NavLink to="/dashbord/guideBookings">
                                         <FaBook></FaBook>
-                                        Guide Bookings
+                                        Assign Tour
                                     </NavLink>
                                 </li>
                                 {/* ... (other guide links) ... */}

@@ -23,9 +23,9 @@ const NavBar = () => {
     };
     const link = <>
         <li className="font-bold"><Link to="/"> Home</Link></li>
-        <li className="font-bold"><Link to="/order/salad"> Community</Link></li>
-        <li className="font-bold"><Link to="/secret">About Us</Link></li>
-        <li className="font-bold"><Link to="/secret">Contact Us</Link></li>
+        <li className="font-bold"><Link to="/community"> Community</Link></li>
+        <li className="font-bold"><Link to="/aboutus">About Us</Link></li>
+        <li className="font-bold"><Link to="/contactus">Contact Us</Link></li>
 
     </>
     const toggleProfileDropdown = () => {

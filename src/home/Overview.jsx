@@ -12,7 +12,7 @@ const Overview = () => {
            <div className='text-center '>
        <Tabs selectedIndex={activeTab} onSelect={index => setActiveTab(index)}>
         {/* Tab List */}
-        <TabList className="font-bold pb-5 text-pink-300">
+        <TabList className="font-bold pb-5 text-green-500">
           <Tab>Overview</Tab>
           <Tab>Our Packages</Tab>
           <Tab>Meet Our Tour Guides</Tab>
