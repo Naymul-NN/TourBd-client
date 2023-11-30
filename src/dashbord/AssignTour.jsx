@@ -2,12 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiospublic from "../hooks/useAxiospublic";
 import { FaCheck } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
+import Swal from "sweetalert2";
 
 
 const AssignTour = () => {
    
     const axiosPublic = useAxiospublic();
-    const { isFetching, data, error } = useQuery({
+    const { isFetching, data, error,refetch } = useQuery({
         queryKey: ['userBooking', ],
         queryFn: () =>
             axiosPublic.get('/userBooking').then((res) => res.data),
@@ -20,7 +21,42 @@ const AssignTour = () => {
     if (isFetching) {
         return <p>Loading...</p>;
     }
-    console.log(data)
+//   accept package
+     const handleAcceptpackage= (booking) =>{
+         axiosPublic.patch(`/booking/accept/${booking._id}`)
+          .then(res =>{
+           console.log(res.data)
+           if(res.data.modifiedCount > 0){
+             refetch();
+              Swal.fire({
+               position: "top-end",
+               icon:'success',
+               title:'package accept successfully',
+               showCancelButton:false,
+               timer:1500,
+              })
+           }
+          })
+       } 
+    //    reject the package
+    const handlerejectpackage= (booking) =>{
+        axiosPublic.patch(`/booking/reject/${booking._id}`)
+         .then(res =>{
+          console.log(res.data)
+          if(res.data.modifiedCount > 0){
+            refetch();
+             Swal.fire({
+              position: "top-end",
+              icon:'success',
+              title:'package reject successfull',
+              showCancelButton:false,
+              timer:1500,
+             })
+          }
+         })
+      } 
+
+    // console.log(data)
     return (
         <div>
             <div>
@@ -47,7 +83,12 @@ const AssignTour = () => {
                                 <td>{item.touristName}</td>
                                 <td>{item.date}</td>
                                 <td>{item.price} $</td>
-                                <td><button className="text-green-500 btn btn-sm"><FaCheck></FaCheck></button> <button className="ml-7 text-red-500 btn btn-sm"> <MdCancel /></button></td>
+                                <td><button onClick={()=>handleAcceptpackage(item)} className="text-green-500 btn btn-sm"
+                                disabled={item?.status==='accept' || item?.status==='rejected'}
+                                ><FaCheck></FaCheck></button>
+                                 <button onClick={()=> handlerejectpackage(item)} className="ml-7 text-red-500 btn btn-sm"
+                                 disabled={item?.status==='accept' || item.status==='rejected'}
+                                 > <MdCancel /></button></td>
                                 
                             </tr>
                         ))}

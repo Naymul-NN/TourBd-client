@@ -46,8 +46,12 @@ const UserBookings = () => {
                                 <td>{item.guideName}</td>
                                 <td>{item.date}</td>
                                 <td>{item.price} $</td>
-                                <td>In review</td>
-                                <td><button className=" btn pay">pay</button></td>
+                                <td>{
+                                    item?.status ? (item?.status) : 'in review'
+                                    }</td>
+                                <td><button className=" btn pay"
+                                disabled={item.status==="rejected"}
+                                >pay</button></td>
                             </tr>
                         ))}
 
