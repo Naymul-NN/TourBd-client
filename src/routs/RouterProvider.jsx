@@ -37,22 +37,22 @@ const router = createBrowserRouter([
       {
         path: "/viewpackage/:id",
         element: <PrivetRout><ViewPackage></ViewPackage></PrivetRout>,
-        loader: ({ params }) => fetch(`http://localhost:5000/tabTour/${params.id}`)
+        loader: ({ params }) => fetch(`https://tour-bd-server-seven.vercel.app/tabTour/${params.id}`)
       },
       {
         path: "/allDetails/:id",
         element: <PrivetRout><Alldetails></Alldetails></PrivetRout>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allpackage/${params.id}`)
+        loader: ({ params }) => fetch(`https://tour-bd-server-seven.vercel.app/allpackage/${params.id}`)
       },
       {
         path: "/guideDetails/:id",
         element: <PrivetRout><GuideDetails></GuideDetails></PrivetRout>,
-        loader: ({ params }) => fetch(`http://localhost:5000/tourGuide/${params.id}`)
+        loader: ({ params }) => fetch(`https://tour-bd-server-seven.vercel.app/tourGuide/${params.id}`)
       },
       {
         path: "/fullstory/:id",
         element: <Stotydetails></Stotydetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/storyone/${params.id}`)
+        loader: ({ params }) => fetch(`https://tour-bd-server-seven.vercel.app/storyone/${params.id}`)
       },
       {
         path: "/allstory",
